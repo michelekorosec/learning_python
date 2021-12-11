@@ -5,6 +5,6 @@ Projects include
 
 1. Jupyter Notebook (complete)
 2. NumPy (complete)
-3. MatPlotLib (next up)
+3. MatPlotLib (currently)
 4. Pandas (planned)
 5. ...
