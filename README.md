@@ -12,6 +12,7 @@ Projects include
    * Matplotlib's design concept
    * plt.subplots()
    * Array visualization with matplotlib
-4. Pandas (next up)
+4. Pandas (currently; Real Python Learning Path: Pandas for Data Science https://realpython.com/learning-paths/pandas-data-science/)
+   * Exploring Datasets with Pandas (currently), Tutorial followed: https://realpython.com/pandas-python-explore-dataset/
 5. Scikit-learn (planned)
 6. Tableau (planned)
