@@ -23,5 +23,21 @@ def basic_stats():
 
     return 0
 
+def exploratory_data_analysis():
+    print(nba["team_id"].value_counts())
+    print(nba["fran_id"].value_counts())
+    print(nba.loc[nba["fran_id"] == "Lakers","team_id"].value_counts())
+
+    nba["date_played"] =  pd.to_datetime(nba["date_game"])
+    print(nba.loc[nba["team_id"] == "MNL", "date_played"].min())
+    print(nba.loc[nba["team_id"] == "MNL", "date_played"].max())
+    print(nba.loc[nba["team_id"] == "MNL", "date_played"].agg(("min","max")))
+
+    print(nba.info())
+    print(nba.loc[nba["team_id"] == "BOS", "pts"].agg(("sum"))) # Suggested solution: nba.loc[nba["team_id"] == "BOS", "pts"].sum()
+
+    return 0
+
 #basics()
 #basic_stats()
+exploratory_data_analysis()
