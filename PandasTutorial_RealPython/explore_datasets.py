@@ -38,6 +38,25 @@ def exploratory_data_analysis():
 
     return 0
 
+def series_objects():
+    revenues = pd.Series([5555,7000,1980])
+    print(revenues)
+    print(revenues.values)
+    print(revenues.index)
+    print(type(revenues.values))
+
+    city_revenues = pd.Series([4200,8000,6500],index=["Amsterdam","Toronto","Tokyo"])
+    print(city_revenues)
+
+    city_employee_count = pd.Series({"Amsterdam":5,"Tokyo":8})
+    print(city_employee_count)
+    print(city_employee_count.keys())
+    print("Tokyo" in city_employee_count)
+    print("Munich" in city_employee_count)
+
+    return 0
+
 #basics()
 #basic_stats()
-exploratory_data_analysis()
+#exploratory_data_analysis()
+series_objects()
