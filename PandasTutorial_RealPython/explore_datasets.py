@@ -120,7 +120,44 @@ def accessing_dataframe_elements(city_data):
     print(nba.info)
     print(nba.loc[5555:5559,["fran_id","opp_fran","pts","opp_pts"]])
 
+    return 0
 
+def querying_dataset():
+
+    current_decade = nba[nba.year_id  > 2010]
+    print(current_decade.shape)
+
+    games_with_notes = nba[nba.notes.notnull()]
+    print(games_with_notes.shape)
+
+    ers = nba[nba.fran_id.str.endswith("ers")]
+    print(ers.shape)
+
+    baltimore = nba[(nba["_iscopy"] == 0) & (nba.pts > 100) & (nba.opp_pts > 100) & (nba.team_id == "BLB")]
+    print(baltimore)
+
+    la = nba[(nba._iscopy == 0) & (nba.team_id.str.contains("LA")) & (nba.notes.str.contains("at"))  & (nba.year_id == 1992)] #example solution: nba[(nba["_iscopy"] == 0) & (nba["team_id"].str.startswith("LA")) & (nba["year_id"]==1992) & (nba["notes"].notnull())]
+    print(la)
+
+    return 0
+
+def grouping_aggregating(city_revenues):
+
+    print(city_revenues.sum())
+    print(city_revenues.max())
+
+    points = nba.pts
+    print(type(points))
+    print(points.sum())
+
+    print(nba.groupby("fran_id",sort=False)["pts"].sum())
+
+    print(nba[(nba.fran_id == "Spurs") & (nba.year_id > 2010)].groupby(["year_id","game_result"])["game_id"].count())
+
+    nba.info()
+
+    warriors = nba[(nba.team_id == "GSW") & (nba.year_id == 2015)].groupby(["is_playoffs","game_result"])["game_id"].count()
+    print(warriors)
 
     return 0
 
@@ -130,4 +167,6 @@ def accessing_dataframe_elements(city_data):
 #series_objects()
 #dataframe_objects(series_objects()[0],series_objects()[1])
 #accessing_series_elements(series_objects()[0])
-accessing_dataframe_elements(dataframe_objects(series_objects()[0],series_objects()[1]))
+#accessing_dataframe_elements(dataframe_objects(series_objects()[0],series_objects()[1]))
+#querying_dataset()
+grouping_aggregating(series_objects()[0])
