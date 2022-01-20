@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib as plt
 
 pd.set_option("display.max.columns",None)
 pd.set_option("display.precision",2)
@@ -37,6 +38,8 @@ def exploratory_data_analysis():
     print(nba.loc[nba["team_id"] == "BOS", "pts"].agg(("sum"))) # Suggested solution: nba.loc[nba["team_id"] == "BOS", "pts"].sum()
 
     return 0
+
+
 
 def series_objects():
     revenues = pd.Series([5555,7000,1980])
@@ -161,12 +164,127 @@ def grouping_aggregating(city_revenues):
 
     return 0
 
+
+def manipulating_columns():
+
+    df = nba.copy()
+    print(df.shape)
+
+    df["difference"] = df.pts-df.opp_pts
+    print(df.shape)
+    print(df.difference.max())
+
+    renamed_df =df.rename(columns={"game_result":"result","game_location":"location"})
+    renamed_df.info()
+
+    elo_columns = ["elo_i","elo_n","opp_elo_i","opp_elo_n"]
+    df.drop(elo_columns,inplace=True,axis=1)
+    print(df.shape)
+
+    return df
+
+def specifying_datatypes(df):
+
+    df.info()
+    df["date_game"] = pd.to_datetime(df["date_game"])
+    df.info()
+
+    print(df["game_location"].nunique())
+    print(df.game_location.value_counts())
+    df["game_location"] = pd.Categorical(df["game_location"])
+    print(df.game_location.dtype)
+
+    df.info() #decreased memory usage due to categorial type
+
+    print(df.game_result.nunique())
+    df.game_result = pd.Categorical(df.game_result)
+    print(df.game_result)
+    df.info()
+
+    return 0
+
+def missing_values():
+
+    rows_without_missing_data = nba.dropna()
+    print(rows_without_missing_data.shape)
+
+    data_without_missing_columns = nba.dropna(axis=1)
+    print(data_without_missing_columns.shape)
+
+    data_w_default_notes = nba.copy()
+    data_w_default_notes.notes.fillna(value="no notes at all", inplace=True)
+    print(data_w_default_notes.notes.describe())
+
+    return 0
+
+def invalid_values():
+
+    print(nba[nba.pts == 0])
+
+    return 0
+
+def inconsistent_values():
+
+    print(nba[(nba.pts > nba.opp_pts) & (nba.game_result != 'W')].empty)
+    print(nba[(nba.pts < nba.opp_pts) & (nba.game_result != 'L')].empty)
+
+    return 0
+
+def combining_multiple_datasets(city_data = dataframe_objects(series_objects()[0],series_objects()[1])):
+
+    further_city_data = pd.DataFrame(
+        {"revenue": [7000,3400], "employee_count":[2,2]},
+        index=["New York","Barcelona"])
+
+    print(further_city_data)
+
+    all_city_data = pd.concat([city_data, further_city_data], sort=False)
+    print(all_city_data)
+
+    city_countries = pd.DataFrame({
+        "country": ["Holland","Japan","Holland","Canada","Spain"],
+        "capital": [1,1,0,0,0]},
+        index=["Amsterdam","Tokyo","Rotterdam","Toronto","Barcelona"]
+    )
+
+    cities = pd.concat([all_city_data,city_countries],axis=1,sort=False)
+    print(cities)
+
+    countries = pd.DataFrame({
+        "population_millions": [17,127,37],
+        "continent": ["Europe","Asia","North America"]},
+        index= ["Holland","Japan","Canada"]
+    )
+
+    all = pd.merge(cities,countries, left_on="country",right_index=True,how="left")
+    print(all)
+
+
+    return 0
+
+def visualization():
+
+    nba[nba.fran_id == "Knicks"].groupby("year_id")["pts"].sum().plot()
+    nba.fran_id.value_counts().head(10).plot(kind="bar")
+    nba[(nba.fran_id == "Heat") & (nba.year_id == 2013)].groupby("game_result").value_counts().plot(kind="pie")
+
+
+    return 0
+
 #basics()
 #basic_stats()
 #exploratory_data_analysis()
+nba["date_played"] =  pd.to_datetime(nba["date_game"]) #placed here to give same results for next tasks
 #series_objects()
 #dataframe_objects(series_objects()[0],series_objects()[1])
 #accessing_series_elements(series_objects()[0])
 #accessing_dataframe_elements(dataframe_objects(series_objects()[0],series_objects()[1]))
 #querying_dataset()
-grouping_aggregating(series_objects()[0])
+#grouping_aggregating(series_objects()[0])
+#manipulating_columns()
+#specifying_datatypes(manipulating_columns())
+#missing_values()
+#invalid_values()
+#inconsistent_values()
+#combining_multiple_datasets()
+visualization()
