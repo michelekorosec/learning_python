@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 pd.set_option("display.max.columns",None)
 pd.set_option("display.precision",2)
@@ -265,10 +265,11 @@ def combining_multiple_datasets(city_data = dataframe_objects(series_objects()[0
 def visualization():
 
     nba[nba.fran_id == "Knicks"].groupby("year_id")["pts"].sum().plot()
+    plt.show()
     nba.fran_id.value_counts().head(10).plot(kind="bar")
-    nba[(nba.fran_id == "Heat") & (nba.year_id == 2013)].groupby("game_result").value_counts().plot(kind="pie")
-
-
+    plt.show()
+    nba[(nba.fran_id == "Heat") & (nba.year_id == 2013)]["game_result"].value_counts().plot(kind="pie")
+    plt.show()
     return 0
 
 #basics()

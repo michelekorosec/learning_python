@@ -18,6 +18,8 @@ Projects include
      * Subset data with .loc, .iloc and the indexing operator
      * Queries, Grouping and Aggregation
      * Visualizing data in a Jupyter notebook
-   * Pythonic Data Cleaning With Pandas and NumPy (next up), Tutorial followed: https://realpython.com/python-data-cleaning-numpy-pandas/
+   * The Pandas DataFrame: Make Working With Data Delightful (started), Tutorial followed: https://realpython.com/pandas-dataframe/
+   * Pandas Sort: Your Guide to Sorting Data in Python (planned), Tutorial followed: https://realpython.com/pandas-sort-python/
+   * Pythonic Data Cleaning With Pandas and NumPy (planned), Tutorial followed: https://realpython.com/python-data-cleaning-numpy-pandas/
 5. Scikit-learn (planned)
 6. Tableau (planned)
