@@ -288,4 +288,4 @@ nba["date_played"] =  pd.to_datetime(nba["date_game"]) #placed here to give same
 #invalid_values()
 #inconsistent_values()
 #combining_multiple_datasets()
-visualization()
+#visualization()
