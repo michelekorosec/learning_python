@@ -91,6 +91,84 @@ def dataframe_to_np():
 
     return 0
 
+def data_types():
+
+    #print(df.dtypes)
+    df_ = df.astype(dtype={'age': np.int32, 'py-score': np.float32})
+    #print(df_.dtypes)
+
+    return df_
+
+def dataframe_size(df_=data_types()):
+
+    print(df_.ndim)
+    print(df_.shape)
+    print(df_.size)
+    print(df_.memory_usage())
+
+    return 0
+
+def accessing_modifying_data():
+
+    print(df['name'])
+    print(df.loc[10])
+    print(df.iloc[0])
+    print(df.loc[:,'city'])
+    print(df.iloc[:,1])
+    print(df.loc[11:15,['name','city']]) #start and stop index inclusive
+    print(df.iloc[1:6,[0,1]]) #stop index exclusive
+    print(df.iloc[1:6:2,0])
+    print(df.iloc[slice(1,6,2),0])
+    print(df.iloc[np.s_[1:6:2],0])
+    print(df.iloc[pd.IndexSlice[1:6:2], 0])
+    print(df.at[12,'name'])
+    print(df.iat[2,0])
+
+    return 0
+
+def setting_data_w_accessors():
+
+    print(df.loc[:,'py-score'])
+
+    df.loc[:13,'py-score'] = [40,50,60,70]
+    df.loc[14:,'py-score'] = 0
+    print(df.loc[:, 'py-score'])
+
+    df.iloc[:, -1] = np.array([88.0, 79.0, 81.0, 80.0, 68.0, 61.0, 84.0])
+    print(df['py-score'])
+
+    return 0
+
+def inserting_deleting_data():
+
+    global df
+
+    john = pd.Series(data=['John','Boston',34,79], index=df.columns, name=17)
+    #print(john)
+    #print(john.name)
+
+    df_ = df.append(john)
+    #print(df_)
+
+    df_ = df_.drop(labels=[17])
+    #print(df_)
+
+    df['js-score'] = np.array([71.0, 95.0, 88.0, 79.0, 91.0, 91.0, 80.0])
+    #print(df)
+
+    df['total-score'] = 0.0
+    #print(df)
+
+    df.insert(loc=4, column='django-score', value=np.array([86.0, 81.0, 78.0, 88.0, 74.0, 70.0, 81.0]))
+    #print(df)
+
+    del df['total-score']
+    #print(df)
+
+    df_ = df.drop(labels='age',axis=1)
+    #print(df_)
+
+    return 0
 
 
 #introducing_dataframes()
@@ -100,3 +178,10 @@ def dataframe_to_np():
 #dataframes_from_files()
 #labels_as_sequences()
 #dataframe_to_np()
+df.index = np.arange(10, 17) #put this here to make the change without calling the function
+#data_types()
+#dataframe_size()
+#accessing_modifying_data()
+#setting_data_w_accessors()
+inserting_deleting_data()
+print(df)
