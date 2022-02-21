@@ -165,8 +165,66 @@ def inserting_deleting_data():
     del df['total-score']
     #print(df)
 
-    df_ = df.drop(labels='age',axis=1)
-    #print(df_)
+    df = df.drop(labels='age',axis=1)
+    #print(df)
+
+    return 0
+
+def applying_arithmetic_operators():
+
+    print(df['py-score'] + df['js-score'])
+
+    print(df['py-score']/100)
+
+    df['total'] = 0.4 * df['py-score'] + 0.3 * df['django-score'] + 0.3 * df['js-score']
+    print(df)
+
+
+    return 0
+
+def applying_numpy_scipy_functions():
+
+    score = df.iloc[:,2:5]
+    print(score)
+    print(np.average(score, axis=1, weights=[0.4,0.3,0.3]))
+
+    del df['total']
+    print(df)
+    df['total'] = np.average(df.iloc[:,2:5],axis=1,weights=[0.4,0.3,0.3])
+    print(df)
+
+    return 0
+
+
+def sorting_pandas_dataframe():
+
+    print(df.sort_values(by='js-score',ascending=False))
+
+    print(df.sort_values(by=['total','py-score'], ascending=[False,False]))
+
+
+    return 0
+
+def filtering_data():
+
+    filter_ = df['django-score'] >= 80
+    print(filter_)
+    print(df[filter_])
+
+    print(df[(df['py-score'] >= 80) & (df['js-score'] >= 80)])
+
+    print(df['django-score'].where(cond=df['django-score'] >= 80, other=0.0))
+
+    return 0
+
+def determining_data_statistics():
+
+    print(df.describe())
+
+    print(df.mean())
+    print(df['py-score'].mean())
+    print(df.std())
+    print(df['py-score'].std())
 
     return 0
 
@@ -183,5 +241,11 @@ df.index = np.arange(10, 17) #put this here to make the change without calling t
 #dataframe_size()
 #accessing_modifying_data()
 #setting_data_w_accessors()
-inserting_deleting_data()
-print(df)
+inserting_deleting_data() # leave uncommented so next functions work
+#applying_arithmetic_operators()
+df['total'] = 0.4 * df['py-score'] + 0.3 * df['django-score'] + 0.3 * df['js-score']
+#applying_numpy_scipy_functions()
+#sorting_pandas_dataframe()
+#filtering_data()
+determining_data_statistics()
+
