@@ -228,6 +228,53 @@ def determining_data_statistics():
 
     return 0
 
+def handling_missing_data():
+
+    df_ = pd.DataFrame({'x':[1, 2, np.nan, 4]})
+    print(df_)
+    print(df_.mean())
+    print(df_.mean(skipna=False))
+    print(df_.fillna(value=0))
+    print(df_.fillna(method='ffill'))
+    print(df_.fillna(method='bfill'))
+    print(df_.interpolate())
+    print(df_.dropna())
+
+    return 0
+
+def iterating_over_dataframe():
+
+    for col_label, col in df.iteritems():
+        print(col_label,col,sep='\n', end='\n\n')
+
+    for row_label, row in df.iterrows():
+        print(row_label,row,sep='\n',end='\n\n')
+
+    for row in df.loc[:, ['name','city','total']].itertuples():
+        print(row)
+
+    return 0
+
+def working_with_time_series():
+
+    temp_c = [8.0, 7.1, 6.8, 6.4, 6.0, 5.4, 4.8, 5.0, 9.1, 12.8, 15.3, 19.1, 21.2, 22.1, 22.4, 23.1, 21.0, 17.9, 15.5, 14.4, 11.9, 11.0, 10.2, 9.1]
+
+    dt = pd.date_range(start='2019-10-27 00:00:00.0', periods=24,freq='H')
+    print(dt)
+
+    temp = pd.DataFrame(data={'temp_c': temp_c}, index=dt)
+    print(temp)
+
+    print(temp['2019-10-27 05':'2019-10-27 14'])
+
+    print(temp.resample(rule='6h').mean())
+
+    print(temp.rolling(window=3).mean())
+
+
+    return 0
+
+
 
 #introducing_dataframes()
 #creating_dataframes()
@@ -247,5 +294,8 @@ df['total'] = 0.4 * df['py-score'] + 0.3 * df['django-score'] + 0.3 * df['js-sco
 #applying_numpy_scipy_functions()
 #sorting_pandas_dataframe()
 #filtering_data()
-determining_data_statistics()
+#determining_data_statistics()
+#handling_missing_data()
+#iterating_over_dataframe()
+working_with_time_series()
 
