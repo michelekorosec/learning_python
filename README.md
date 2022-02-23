@@ -18,7 +18,13 @@ Projects include
      * Subset data with .loc, .iloc and the indexing operator
      * Queries, Grouping and Aggregation
      * Visualizing data in a Jupyter notebook
-   * The Pandas DataFrame: Make Working With Data Delightful (started), Tutorial followed: https://realpython.com/pandas-dataframe/
+   * The Pandas DataFrame: Make Working With Data Delightful (complete), Tutorial followed: https://realpython.com/pandas-dataframe/
+     * Creating a Pandas DataFrame
+     * Accessing, Modifying, Adding, Sorting, Filtering and Deleting data
+     * Usage of Numpy Routines with DataFrames
+     * Handling missing values
+     * Working with time-series data
+     * Visualization of data from DataFrames
    * Pandas Sort: Your Guide to Sorting Data in Python (planned), Tutorial followed: https://realpython.com/pandas-sort-python/
    * Pythonic Data Cleaning With Pandas and NumPy (planned), Tutorial followed: https://realpython.com/python-data-cleaning-numpy-pandas/
 5. Scikit-learn (planned)

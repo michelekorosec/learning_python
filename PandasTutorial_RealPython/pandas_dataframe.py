@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 data = {
     'name': ['Xavier', 'Ann', 'Jana', 'Yi', 'Robin', 'Amal', 'Nori'],
@@ -272,6 +273,20 @@ def working_with_time_series():
     print(temp.rolling(window=3).mean())
 
 
+    return temp
+
+
+def plotting_with_dataframes(temp=working_with_time_series()):
+
+    temp.plot()
+    plt.show()
+
+    temp.plot().get_figure().savefig('temperatures.png')
+
+    df.loc[:, ['py-score','total']].plot.hist(bins=5,alpha=0.4)
+    plt.show()
+
+
     return 0
 
 
@@ -297,5 +312,5 @@ df['total'] = 0.4 * df['py-score'] + 0.3 * df['django-score'] + 0.3 * df['js-sco
 #determining_data_statistics()
 #handling_missing_data()
 #iterating_over_dataframe()
-working_with_time_series()
-
+#working_with_time_series()
+plotting_with_dataframes(working_with_time_series())
