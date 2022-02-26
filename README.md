@@ -12,7 +12,7 @@ Projects include
    * Matplotlib's design concept
    * plt.subplots()
    * Array visualization with matplotlib
-4. Pandas (currently; Roughly following Real Python Learning Path: Pandas for Data Science https://realpython.com/learning-paths/pandas-data-science/)
+4. Pandas (completed; Roughly following Real Python Learning Path: Pandas for Data Science https://realpython.com/learning-paths/pandas-data-science/)
    * Exploring Datasets with Pandas (complete), Tutorial followed: https://realpython.com/pandas-python-explore-dataset/
      * Work with Series and DataFrame Objects
      * Subset data with .loc, .iloc and the indexing operator
@@ -27,5 +27,9 @@ Projects include
      * Visualization of data from DataFrames
    * Pandas Sort: Your Guide to Sorting Data in Python (planned), Tutorial followed: https://realpython.com/pandas-sort-python/
    * Pythonic Data Cleaning With Pandas and NumPy (planned), Tutorial followed: https://realpython.com/python-data-cleaning-numpy-pandas/
-5. Scikit-learn (planned)
-6. Tableau (planned)
+5. Object Oriented Programming (currently)
+   * Basics (started; Tutorial followed: https://realpython.com/python3-object-oriented-programming/)
+   * Personal Book List Project (planned)
+6. Formula 1 Data Analysis (planned)
+7. Scikit-learn (planned)
+
