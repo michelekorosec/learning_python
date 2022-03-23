@@ -94,7 +94,7 @@ def child_class():
             return f"{self.name} is {self.age} years old"
 
         def speak(self, sound):
-            return f"{self.name} says {sound}"
+            return f"{self.name} barks: {sound}"
 
     class JackRussellTerrier(Dog):
         pass
@@ -110,10 +110,47 @@ def child_class():
     jack = Bulldog("Jack", 3)
     jim = Bulldog("Jim", 5)
 
+    print(miles.species)
+    print(buddy.name)
+    print(jack)
+    print(jack.speak("Woof"))
+
     print(type(miles))
     print(isinstance(miles,Dog))
     print(isinstance(miles,Bulldog))
     print(isinstance(jack,Dachshund))
+
+
+
+
+    return Dog,Bulldog
+
+
+def parent_class_functionality(Dog=child_class()[0],Bulldog=child_class()[1]):
+
+
+
+    class JackRussellTerrier(Dog):
+        def speak(self,sound="Arf"):
+            return super().speak(sound)
+
+    miles = JackRussellTerrier("Miles", 4)
+    print(miles.speak())
+    print(miles.speak("Grrr"))
+
+    jim = Bulldog("Jim",5)
+    print(jim.speak("Woof"))
+
+
+    return 0
+
+
+def golden_retriever(Dog=child_class()[0]):
+
+    class GoldenRetriever(Dog):
+        def speak(self,sound="Bark"):
+            return super().speak(sound)
+
 
     return 0
 
@@ -121,4 +158,6 @@ def child_class():
 #instance_methods()
 #check_understanding()
 #dog_park()
-child_class()
+#child_class()
+#parent_class_functionality()
+golden_retriever()
