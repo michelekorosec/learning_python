@@ -28,7 +28,13 @@ Projects include
    * Pandas Sort: Your Guide to Sorting Data in Python (planned), Tutorial followed: https://realpython.com/pandas-sort-python/
    * Pythonic Data Cleaning With Pandas and NumPy (planned), Tutorial followed: https://realpython.com/python-data-cleaning-numpy-pandas/
 5. Object Oriented Programming (currently)
-   * Basics (started; Tutorial followed: https://realpython.com/python3-object-oriented-programming/)
+   * Basics (finished; Tutorial followed: https://realpython.com/python3-object-oriented-programming/)
+     * Defining a class
+     * Instantiating an object from a class
+     * Using attributes and methods to define properties and behaviors of an object
+     * Using inheritance to create child classes from parent classes
+     * Referencing a parent class method through super()
+     * Checking if an object inherits from another class using isinstance()
    * Personal Book List Project (planned)
 6. Formula 1 Data Analysis (planned)
 7. Scikit-learn (planned)
