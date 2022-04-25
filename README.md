@@ -25,9 +25,7 @@ Projects include
      * Handling missing values
      * Working with time-series data
      * Visualization of data from DataFrames
-   * Pandas Sort: Your Guide to Sorting Data in Python (planned), Tutorial followed: https://realpython.com/pandas-sort-python/
-   * Pythonic Data Cleaning With Pandas and NumPy (planned), Tutorial followed: https://realpython.com/python-data-cleaning-numpy-pandas/
-5. Object Oriented Programming (currently)
+5. Object Oriented Programming (partly finished; currently working on personal project)
    * Basics (finished; Tutorial followed: https://realpython.com/python3-object-oriented-programming/)
      * Defining a class
      * Instantiating an object from a class
@@ -35,7 +33,8 @@ Projects include
      * Using inheritance to create child classes from parent classes
      * Referencing a parent class method through super()
      * Checking if an object inherits from another class using isinstance()
-   * Personal Book List Project (planned)
-6. Formula 1 Data Analysis (planned)
+   * Personal Book List Project (current)
+6. Formula 1 Data Analysis (current)
+   * How to Analyze Formula 1 Data with Python: A Beginner's Tutorial (Tutorial followed: https://medium.com/towards-formula-1-analysis/how-to-analyze-formula-1-data-with-python-a-beginners-tutorial-23087c4eef1d)
 7. Scikit-learn (planned)
 
