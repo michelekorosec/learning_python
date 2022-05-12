@@ -15,7 +15,7 @@ class Author:
         self.nationality = nationality
         self.gender = gender
 
-valid_book_formats = ["Audio", "Physical"]
+valid_book_formats = ["Audio", "Paperback", "Hardback", "e-book"]
 valid_book_sources = ["Spotify","Overdrive","Library N","Library M","Gifted","Bought","Borrowed","Public Bookcase N"]
 valid_reading_languages = ["English","German","French"]
 
@@ -52,8 +52,21 @@ class Audio_Book(Book):
         if (type(audio_length) != type(datetime.timedelta())):
             raise TypeError(str(type(audio_length)) + " is an invalid data type. The valid data type is datetime.timedelta().")
 
+        if book_format != "Audio":
+            raise ValueError(str(book_format) +" is an invalid book type in this class. Only 'Audio' books are allowed.")
+
         Book.__init__(self,title,author,book_format,source,owned,date_started,date_finished,series,genre,pub_year,rating,num_times_read,reading_language)
         self.audio_length = audio_length
+
+class Physical_Book(Book):
+
+    def __init__(self,title,author,book_format,source,owned,date_started,date_finished,series,genre,pub_year,rating,num_times_read,reading_language,pages):
+
+        if book_format != ("Hardback" or "Paperback" or "e-book"):
+            raise ValueError(str(book_format) +" is an invalid book type in this class. Only 'Paperback' or 'Hardback' or 'e-book' books are allowed.")
+
+        Book.__init__(self,title,author,book_format,source,owned,date_started,date_finished,series,genre,pub_year,rating,num_times_read,reading_language)
+        self.pages = pages
 
 charles_duhigg = Author("Charles Duhigg","USA","male")
 the_power_of_habit = Audio_Book("The Power of Habit", charles_duhigg, "Audio", "Overdrive", False,
@@ -61,3 +74,9 @@ the_power_of_habit = Audio_Book("The Power of Habit", charles_duhigg, "Audio", "
                                 4.0, 1, "English", datetime.timedelta(hours=10, minutes=53))
 print(the_power_of_habit.author.gender)
 print(the_power_of_habit.audio_length)
+
+
+amy_kaufman = Author("Amy Kaufman","Australia","female")
+jay_kristoff = Author("Jay Kristoff","Australia","male")
+illuminae = Physical_Book("Illuminae",[amy_kaufman,jay_kristoff],"Hardback","Library N",False,np.datetime64("2022-01-29"),np.datetime64("2022-02-19"),True,"Sci-Fi",2015,1.0,1,"German",608)
+print(illuminae.pages)
