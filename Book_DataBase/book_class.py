@@ -9,7 +9,7 @@ valid_reading_languages = ["English","German","French"]
 
 class Book:
 
-    def __init__(self,title,author,book_format,source,owned,date_started,date_finished,series,genre,pub_year,rating,num_times_read,reading_language):
+    def __init__(self,title,author,standalone,book_format,source,owned,date_started,date_finished,genre,pub_year,rating,num_times_read,reading_language,series=None,num_book=None):
 
         if book_format not in valid_book_formats:
             raise ValueError(str(book_format) +" is an invalid book type. Valid options are: " + str(valid_book_formats))
@@ -22,12 +22,18 @@ class Book:
 
         self.title = title
         self.author = author
+        self.standalone = standalone
+        if standalone == True:
+            self.series = None
+            self.num_book = None
+        else:
+            self.series = series
+            self.num_book = num_book
         self.book_format = book_format
         self.source = source
         self.owned = owned
         self.date_started = date_started
         self.date_finished = date_finished
-        self.series = series
         self.genre = genre
         self.pub_year = pub_year
         self.rating = rating
