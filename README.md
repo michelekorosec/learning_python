@@ -1,5 +1,5 @@
 # learning_python
-Trial projects to improve my python skills for data science projects
+Projects to improve my python skills for data science projects
 
 Projects include 
 
