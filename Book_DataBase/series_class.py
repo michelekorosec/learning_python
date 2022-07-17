@@ -1,4 +1,4 @@
-class series():
+class Series():
 
     def __init__(self,series_title,author,num_books):
 
